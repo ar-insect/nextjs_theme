@@ -1,18 +1,31 @@
 # Next.js Demo
 
-一个基于 Next.js 14、React 18、TypeScript 与 Tailwind CSS 的简易示例项目，展示了模块化目录组织、基础页面路由与 API 路由的组合方式。
+一个基于 Next.js 16、React 19、TypeScript 与 Tailwind CSS 的简易示例项目，展示了模块化目录组织、基础页面路由与 API 路由的组合方式。
 
 ## 技术栈
 
-- Next.js 14
-- React 18
+- Next.js 16
+- React 19
 - TypeScript
 - Tailwind CSS
-- ESLint
+- ESLint 9
 
 ## 快速开始
 
-先安装依赖：
+建议先切换到项目约定的 Node.js 版本：
+
+```bash
+nvm use 22.22.3
+```
+
+如果本机尚未安装该版本，可先执行：
+
+```bash
+nvm install 22.22.3
+nvm use 22.22.3
+```
+
+再安装依赖：
 
 ```bash
 npm install
@@ -70,8 +83,10 @@ src/
 
 ### 环境要求
 
-- 建议使用 Node.js 18.17 及以上版本
-- 建议使用 npm 9 及以上版本
+- 建议使用 Node.js `22.22.3`
+- 最低要求 Node.js `20.9+`
+- 建议使用 npm 10 及以上版本
+- 项目根目录提供了 `.nvmrc`，便于通过 `nvm use` 快速切换版本
 
 可先检查本地环境：
 
@@ -79,6 +94,19 @@ src/
 node -v
 npm -v
 ```
+
+推荐输出示例：
+
+```text
+v22.22.3
+10.x
+```
+
+### 开发说明
+
+- `Next.js 16` 默认使用 Turbopack 进行 `dev` 和 `build`
+- 代码检查命令已切换为 `eslint .`
+- 项目当前已验证 `npm run lint` 和 `npm run build` 可通过
 
 ### 通用部署流程
 
@@ -148,6 +176,7 @@ PORT=3000 npm run start
 - 确认生产环境 Node.js 版本符合要求
 - 确认依赖已完整安装
 - 确认执行 `npm run build` 无报错
+- 如使用 `nvm`，确认服务器 Node.js 版本与 `.nvmrc` 一致
 - 如使用环境变量，确认 `.env` 配置已在服务器或平台中正确设置
 
 ## 说明

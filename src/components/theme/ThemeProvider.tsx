@@ -50,6 +50,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [radius, setRadiusState] = useState<RadiusScale>("md");
 
   useEffect(() => {
+    // Restore persisted client preferences after hydration.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setThemeState(getInitialTheme());
     setFontSizeState(getInitialFontSize());
     setRadiusState(getInitialRadius());
@@ -117,7 +119,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 export function useTheme() {
   const context = useContext(ThemeContext);
   if (!context) {
-    throw new Error("useTheme must be uxed within ThemeProvider");
+    throw new Error("useTheme must be used within ThemeProvider");
   }
   return context;
 }
